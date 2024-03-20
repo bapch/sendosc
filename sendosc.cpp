@@ -23,6 +23,7 @@ void usage()
     fprintf(stderr, "    i : int\n");
     fprintf(stderr, "    h : int64\n");
     fprintf(stderr, "    f : float\n");
+    fprintf(stderr, "    d : float64\n");
     fprintf(stderr, "    b : boolean (true/false)\n");
     fprintf(stderr, "    s : string\n");
     fprintf(stderr, "\n");
@@ -30,9 +31,10 @@ void usage()
     fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test1 i 123\n");
     fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test2 h 9223372036854775807\n");
     fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test3 f 123.45\n");
-    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test4 s teststring\n");
-    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test5 b true\n");
-    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test6 s teststring i 123 f 123.4 b false\n");
+    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test4 d 1.7976931348623157e+308\n");
+    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test5 s teststring\n");
+    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test6 b true\n");
+    fprintf(stderr, "    ./sendosc 127.0.0.1 5678 /test7 s teststring i 123 f 123.4 b false\n");
     fprintf(stderr, "\n");
     
     exit(0);
@@ -76,6 +78,9 @@ main(int argc, char* argv[])
         }
         else if (type == "f") {
             p << (float)(atof(val.c_str()));
+        }
+        else if (type == "d") {
+            p << (double)(atof(val.c_str()));
         }
         else if (type == "b") {
             if (val == "true") p << true;
