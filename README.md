@@ -8,16 +8,20 @@ usage : sendosc dst_host dst_port path [[type] [param]] ...
  
    type
      i : int
+     h : int64
      f : float
+     d : float64
      b : boolean (true/false)
      s : string
  
    example
      ./sendosc 127.0.0.1 5678 /test1 i 123
-     ./sendosc 127.0.0.1 5678 /test2 f 123.45
-     ./sendosc 127.0.0.1 5678 /test3 s teststring
-     ./sendosc 127.0.0.1 5678 /test4 b true
-     ./sendosc 127.0.0.1 5678 /test5 s teststring i 123 f 123.4 b false
+     ./sendosc 127.0.0.1 5678 /test2 h 9223372036854775807
+     ./sendosc 127.0.0.1 5678 /test3 f 123.45
+     ./sendosc 127.0.0.1 5678 /test4 d 1.7976931348623157e+308
+     ./sendosc 127.0.0.1 5678 /test5 s teststring
+     ./sendosc 127.0.0.1 5678 /test6 b true
+     ./sendosc 127.0.0.1 5678 /test7 s teststring i 123 f 123.4 b false
 ```
 
 ## How to install
